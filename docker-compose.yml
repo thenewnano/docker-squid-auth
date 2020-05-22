@@ -1,0 +1,12 @@
+version: "3"
+services:
+  squid-docker-auth:
+    build: .
+    ports:
+      - "3128:3128"
+    volumes:
+      - ./log:/var/log/
+      - ./conf/squid.conf:/etc/squid/squid.conf
+      - ./passwd:/etc/squid/passwd
+      - ./cache:/var/cache
+    restart: always
